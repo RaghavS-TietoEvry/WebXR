@@ -1,0 +1,27 @@
+.hit-point-text {
+  border: 2px solid;
+  border-color: grey;
+  border-radius: 10px;
+  margin: auto;
+  max-width: fit-content;
+}
+
+.card-title {
+  text-align: center;
+  font-size: medium;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: firebrick;
+}
+
+.card-text {
+  text-align: center;
+  color: rgb(209, 63, 63);
+  font-weight: 700;
+  margin-top: 2%;
+}
+
+#startAR {
+  position: absolute;
+  bottom: 10%;
+  right: 40%;
+}

@@ -1,0 +1,65 @@
+body {
+  max-width: fit-content;
+  max-height: fit-content;
+}
+
+.initializing-text {
+  position: absolute;
+  top: 40vh;
+  left: 20vw;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: grey;
+  width: 60vw;
+  height: 8vh;
+  font-size: large;
+  font-weight: bold;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  color: ghostwhite;
+  display: none;
+}
+
+.hit-point-text {
+  position: absolute;
+  top: 2vh;
+  left: 18vw;
+  border: 2px solid;
+  border-color: grey;
+  border-radius: 10px;
+  max-width: fit-content;
+  background-color: aliceblue;
+}
+
+.card-title {
+  text-align: center;
+  font-size: medium;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: firebrick;
+}
+
+.card-text {
+  text-align: center;
+  color: rgb(209, 63, 63);
+  font-weight: 700;
+  margin-top: 2%;
+}
+
+#startAR {
+  position: absolute;
+  bottom: 3vh;
+  left: 27vw;
+}
+
+#markPoint {
+  position: absolute;
+  bottom: 3vh;
+  left: 57vw;
+}
+
+.label {
+  font-size: medium;
+  font-weight: bold;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: rgb(239, 241, 244);
+}

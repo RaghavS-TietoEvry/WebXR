@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="../css/webxr_hit_test_point_tracking.css">
+    <title>Web-AR Hit Testing & hit point tracking</title>
+</head>
+
+<body>
+    <div class="hit-point-text">
+        <div>
+            <div class="card-title">The hit point represented as (X,Y,Z)</div>
+            <div class="card-text">
+                <p style="margin: 2%; display: inline;">X:</p>
+                <p id="x-coordinate" style="display: inline;">0.0</p>
+                <p style="margin: 2%; display: inline;">Y:</p>
+                <p id="y-coordinate" style="display: inline;">0.0</p>
+                <p style="margin: 2%; display: inline;">Z:</p>
+                <p id="z-coordinate" style="display: inline;">0.0</p>
+            </div>
+        </div>
+    </div>
+    <button id="startAR" class="btn btn-primary btn-sm">Start AR</button>
+    <script type="module" src="../js/webxr_hit_test_point_tracking.js"></script>
+</body>
