@@ -1,9 +1,9 @@
-import * as THREE from "three";
-import { CSS2DRenderer, CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
+//import * as THREE from "three";
+//import { CSS2DRenderer, CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
 
 /**The following imports can be used with importmap script */
-//import * as THREE from "three";
-//import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
+import * as THREE from "three";
+import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 
 /**the following import is used to call the Threejs module at runtime. Threejs CDN */
 //import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.module.js";
@@ -226,11 +226,19 @@ function DistanceCalc(markedPoint1, markedPoint2) {
 }
 
 function AngleCalc(markedPoint1, markedPoint2) {
-  let deltaX = markedPoint2.x - markedPoint1.x;
-  let hypotenuse = markedPoint1.distanceTo(markedPoint2);
+  let origin = new THREE.Vector2(0, 0);
+  let v_1 = new THREE.Vector2(markedPoint1.x, markedPoint1.z);
+  let v_2 = new THREE.Vector2(markedPoint2.x, markedPoint2.z);
 
-  let angle = Math.acos(deltaX / hypotenuse) * (180 / Math.PI);
-  //console.log(angle.toFixed(4));
+  //let distOriginV1 = origin.distanceTo(v_1);
+  let distOriginV2 = origin.distanceTo(v_2);
+  let distV1V2 = v_1.distanceTo(v_2);
 
-  return angle.toFixed(2);
+  let distFactor = distOriginV2 / distV1V2;
+  let angleV1V2 = v_1.angleTo(v_2);
+
+  let angleBig = Math.asin(distFactor * Math.sin(angleV1V2));
+  let angle = (angleBig + angleV1V2 - Math.PI / 2) / 2;
+
+  return (angle * (180 / Math.PI)).toFixed(1);
 }
