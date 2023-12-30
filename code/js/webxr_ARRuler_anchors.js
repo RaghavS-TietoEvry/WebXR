@@ -223,7 +223,7 @@ async function ActivateAR() {
           }
         }
 
-        for (let i = 0; i < anchoredPoints.length; i++) {
+        for (let i = 1; i < anchoredPoints.length; i++) {
           if (frame.trackedAnchors.has(anchoredPoints[i].anchor)) {
             //Returns the 3D object Mesh
             //console.log(anchoredPoint);
