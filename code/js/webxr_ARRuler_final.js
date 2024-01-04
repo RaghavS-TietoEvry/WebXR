@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
+import { CSS2DRenderer, CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
 
 /**the following import is used to call the Threejs module at runtime. Threejs CDN */
 //import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.module.js";
@@ -7,7 +7,7 @@ import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer
 async function ActivateAR() {
   const canvas = document.createElement("canvas");
   document.body.appendChild(canvas);
-  const gl = canvas.getContext("webgl", { xrCompatible: true });
+  const gl = canvas.getContext("webgl2", { xrCompatible: true });
 
   //Scene Creation
   const scene = new THREE.Scene();
@@ -39,7 +39,6 @@ async function ActivateAR() {
 
   //Camera Creation
   const camera = new THREE.PerspectiveCamera();
-  //const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 2000);
   camera.matrixAutoUpdate = false;
 
   //WebXR session creation
@@ -67,7 +66,7 @@ async function ActivateAR() {
   const material = new THREE.MeshBasicMaterial({ color: 0xcc4444 });
 
   let reticle = new THREE.Mesh(geometry, material);
-  //reticle.matrixAutoUpdate = false;
+  reticle.matrixAutoUpdate = false; //matrixAutoUpdate needs to be false to pass HitPose matrix values to the reticel matrix4.
   reticle.visible = false;
   scene.add(reticle);
 
@@ -168,9 +167,12 @@ async function ActivateAR() {
         document.getElementById("initial-text").style.display = "none";
 
         reticle.visible = true;
+        reticle.matrix.fromArray(hitPose.transform.matrix);
         reticle.position.set(hitPose.transform.position.x, hitPose.transform.position.y, hitPose.transform.position.z);
-        //reticle.matrix.fromArray(hitPose.transform.matrix);
         reticle.updateMatrixWorld(true);
+
+        console.log(hitPose);
+        console.log(reticle);
 
         document.getElementById("x-coordinate").innerHTML = `${hitPose.transform.position.x.toFixed(3)}`;
         document.getElementById("y-coordinate").innerHTML = `${hitPose.transform.position.y.toFixed(3)}`;
