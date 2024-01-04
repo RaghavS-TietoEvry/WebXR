@@ -7,7 +7,7 @@ import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer
 async function ActivateAR() {
   const canvas = document.createElement("canvas");
   document.body.appendChild(canvas);
-  const gl = canvas.getContext("webgl2", { xrCompatible: true });
+  const gl = canvas.getContext("webgl", { xrCompatible: true });
 
   //Scene Creation
   const scene = new THREE.Scene();
